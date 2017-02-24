@@ -289,7 +289,15 @@ public class MainActivity extends AppCompatActivity implements OnProductSelected
         IntentFilter filter = new IntentFilter();
         filter.addAction("SYNC_DATA");
         registerReceiver(sync, filter);
+        
+        /*
+            getDefaultSharedPreferences():
+            koristi podrazumevano ime preference-file-a. 
+            Podrzazumevani fajl je setovan na nivou aplikacije tako da sve aktivnosti u istom context-u mogu da mu pristupe jednostavnije
 
+            getSharedPreferences(name,mode): 
+            trazi da se specificira ime preference file-a requires i mod u kome se radi (e.g. private, world_readable, etc.)
+        */
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         consultPreferences();
